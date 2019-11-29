@@ -4,7 +4,7 @@
   "description": "Full Stack React &amp; Django App",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack --mode development ./leadsmanager/frontend/src/index.js --output ./leadsmanager/frontend/static/frontend/main.js",
+    "dev": "webpack --mode development --watch ./leadsmanager/frontend/src/index.js --output ./leadsmanager/frontend/static/frontend/main.js",
     "build": "webpack --mode production ./leadsmanager/frontend/src/index.js --output ./leadsmanager/frontend/static/frontend/main.js"
   },
   "repository": {
