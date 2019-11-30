@@ -28,6 +28,13 @@ class Form extends Component {
   handleSubmit = e => {
     e.preventDefault();
     this.props.addLead(this.state.newLead);
+    this.setState({
+      newLead: {
+        name: "",
+        email: "",
+        message: ""
+      }
+    });
   };
 
   render() {
