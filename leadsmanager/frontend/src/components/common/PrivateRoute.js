@@ -17,7 +17,8 @@ const PrivateRoute = ({ component: Component, auth, ...rest }) => (
             <span className="sr-only">Loading...</span>
           </div>
         );
-        // } else if () {
+      } else if (!auth.isAuthenticated) {
+        return <Redirect to="/login" />;
       } else {
         return <Component {...props} />;
       }

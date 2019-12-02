@@ -19,14 +19,19 @@ import PrivateRoute from "./common/PrivateRoute";
 
 import { Provider } from "react-redux";
 import store from "../store";
-// Alert options
+import { loadUser } from "../actions/auth";
 
+// Alert options
 const alertOptions = {
   timeout: 3000,
   position: positions.BOTTOM_CENTER
 };
 
 class App extends Component {
+  componentDidMount() {
+    store.dispatch(loadUser());
+  }
+
   render() {
     return (
       <Provider store={store}>
