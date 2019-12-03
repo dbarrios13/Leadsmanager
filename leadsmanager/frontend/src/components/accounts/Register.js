@@ -1,9 +1,15 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-// import { } from '../../actions/'
+import { Link, Redirect } from "react-router-dom";
+import { register } from "../../actions/auth";
+import PropTypes from "prop-types";
 
 class Register extends Component {
+  static propTypes = {
+    isAuthenticated: PropTypes.bool,
+    register: PropTypes.func.isRequired
+  };
+
   state = {
     newUser: {
       username: "",
@@ -24,9 +30,11 @@ class Register extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
+    this.props.register(this.state.newUser);
   };
 
   render() {
+    if (this.props.isAuthenticated) return <Redirect to="/" />;
     const { username, email, password, passwordConfirm } = this.state.newUser;
     return (
       <div className="col-md-6 m-auto">
@@ -86,4 +94,8 @@ class Register extends Component {
   }
 }
 
-export default connect(null, {})(Register);
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated
+});
+
+export default connect(mapStateToProps, { register })(Register);
