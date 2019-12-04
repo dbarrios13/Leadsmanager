@@ -10,6 +10,7 @@ python-decouple = "*"
 django = "*"
 djangorestframework = "*"
 django-rest-knox = "*"
+whitenoise = "*"
 
 [requires]
 python_version = "3.7"
