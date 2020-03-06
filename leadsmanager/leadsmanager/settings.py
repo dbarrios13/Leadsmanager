@@ -48,7 +48,6 @@ INSTALLED_APPS = [
     'frontend',
     'knox',
     'accounts',
-    'herokuapp'
 ]
 
 REST_FRAMEWORK = {
